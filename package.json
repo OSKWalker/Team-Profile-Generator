@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "dynamically generated html page for a development team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSKWalker/Team-Profile-Generator.git"
+  },
+  "author": "O'Mar Walker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OSKWalker/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/OSKWalker/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "jest": "^27.1.1"
+  }
+}
