@@ -24,5 +24,6 @@
     "inquirer": "^8.1.2",
     "jest": "^27.1.1",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {}
 }
