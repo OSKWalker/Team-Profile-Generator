@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/OSKWalker/Team-Profile-Generator#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "inquirer": "^8.1.2",
-    "jest": "^27.1.1"
+    "jest": "^27.1.1",
+    "path": "^0.12.7"
   }
 }
