@@ -83,11 +83,11 @@ function init() {
 
         memberIDs.push(answers.teamManagerID);
 
-        fillRoster();
+        setRoster();
       });
   }
 
-  function fillRoster() {
+  function setRoster() {
     inquirer
       .prompt([
         {
@@ -181,7 +181,7 @@ function init() {
 
         memberIDs.push(answers.engineerID);
 
-        fillRoster();
+        setRoster();
       });
   }
   function setIntern() {
@@ -254,9 +254,16 @@ function init() {
 
         memberIDs.push(answers.internID);
 
-        fillRoster();
+        setRoster();
       });
   }
-  function setTeam() {}
+  function setTeam() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR);
+    }
+    fs.writeFileSync(outputPath, render(roster), "utf-8");
+  }
+
+  setManager();
 }
 init();
