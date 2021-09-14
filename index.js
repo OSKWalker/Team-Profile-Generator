@@ -1,13 +1,13 @@
-import Manager from "./lib/Manager";
-import Engineer from "./lib/Engineer";
-import Intern from "./lib/Intern";
-import { prompt } from "inquirer";
-import { resolve, join } from "path";
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import Manager from "./lib/Manager.js";
+import Engineer from "./lib/Engineer.js";
+import Intern from "./lib/Intern.js";
+import inquirer from "inquirer";
+import path from "path";
+import fs from "fs";
 import render from "./src/template-helper.js";
 
 const OUTPUT_DIR = path.resolve(__dirname, "dist");
-const outputPath = path.join(OUTPUT_DIR, "my-team.html");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
 const roster = [];
 const memberIDs = [];
 
@@ -84,6 +84,30 @@ function init() {
         memberIDs.push(answers.managerID);
 
         fillRoster();
+      });
+  }
+
+  function fillRoster() {
+    inquirer
+      .prompt([
+        {
+          name: "newMember",
+          type: "list",
+          message: " Select a member for your team:",
+          choices: ["Engineer", "Intern", "My team is complete."],
+        },
+      ])
+      .then((userSelection) => {
+        switch (userSelection.newMember) {
+          case "Engineer":
+            setEngineer();
+            break;
+          case "Intern":
+            setIntern();
+            break;
+          default:
+            setTeam();
+        }
       });
   }
 }

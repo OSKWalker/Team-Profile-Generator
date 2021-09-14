@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "dynamically generated html page for a development team",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "lib": "lib"
   },
