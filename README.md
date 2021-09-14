@@ -17,7 +17,7 @@ node index.js
 Tests are executed with the following command:
 
 ```bash
-npm test
+npm run test
 ```
 
 Upon invocation, the user should experience the following:

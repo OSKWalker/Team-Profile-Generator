@@ -26,11 +26,11 @@ function init() {
             if (answer !== "") {
               return true;
             }
-            return "Enter one or more characters.";
+            return "Enter one or more characters:";
           },
         },
         {
-          name: "managerID",
+          name: "teamManagerID",
           type: "input",
           message: "Enter your Team Manager's identification number:",
           validate: (answer) => {
@@ -39,11 +39,11 @@ function init() {
             if (valid) {
               return true;
             }
-            return "Identification number must be greater than zero (0).";
+            return "Identification number must be greater than zero (0):";
           },
         },
         {
-          name: "managerEmail",
+          name: "teamManagerEmail",
           type: "input",
           message: "Enter your Team Manager's E-mail address:",
           validate: (answer) => {
@@ -54,11 +54,11 @@ function init() {
             if (valid) {
               return true;
             }
-            return "Enter a valid e-mail address.";
+            return "Enter a valid e-mail address:";
           },
         },
         {
-          name: "managerOfficeNumber",
+          name: "teamManagerOfficeNumber",
           type: "input",
           message: "Enter your Team Manager's Office number:",
           validate: (answer) => {
@@ -67,21 +67,21 @@ function init() {
             if (valid) {
               return true;
             }
-            return "Office number must be greater than zero (0)";
+            return "Office number must be greater than zero (0):";
           },
         },
       ])
       .then((answers) => {
         const manager = new Manager(
-          answers.managerName,
-          answers.managerID,
-          answers.managerEmail,
-          answers.managerOfficeNumber
+          answers.teamManagerName,
+          answers.teamManagerID,
+          answers.teamManagerEmail,
+          answers.teamManagerOfficeNumber
         );
 
         roster.push(manager);
 
-        memberIDs.push(answers.managerID);
+        memberIDs.push(answers.teamManagerID);
 
         fillRoster();
       });
@@ -91,14 +91,14 @@ function init() {
     inquirer
       .prompt([
         {
-          name: "newMember",
+          name: "newTeamMember",
           type: "list",
           message: " Select a member for your team:",
           choices: ["Engineer", "Intern", "My team is complete."],
         },
       ])
       .then((userSelection) => {
-        switch (userSelection.newMember) {
+        switch (userSelection.newTeamMember) {
           case "Engineer":
             setEngineer();
             break;
@@ -110,4 +110,83 @@ function init() {
         }
       });
   }
+
+  function setEngineer() {
+    inquirer
+      .prompt([
+        {
+          name: "engineerName",
+          type: "input",
+          message: "Enter your Engineer's name:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Enter one or more characters:";
+          },
+        },
+        {
+          name: "engineerID",
+          type: "input",
+          message: "Enter your Engineer's identification number:",
+          validate: (answer) => {
+            const valid = answer.match(/^[1-9]\d*$/);
+
+            if (valid) {
+              if (memberIDs.includes(answer)) {
+                return "Enter a UNIQUE identification number:";
+              } else {
+                return true;
+              }
+            }
+            return "Identification number must be greater than zero (0):";
+          },
+        },
+        {
+          name: "engineerEmail",
+          type: "input",
+          message: "Enter your Engineer's E-mail address:",
+          validate: (answer) => {
+            const valid = answer.match(
+              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+            );
+
+            if (valid) {
+              return true;
+            }
+            return "Enter a valid e-mail address:";
+          },
+        },
+        {
+          name: "engineerGitHub",
+          type: "input",
+          message: "Enter your Engineer's GitHub username:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Enter one or more characters:";
+          },
+        },
+      ])
+      .then((answers) => {
+        const engineer = new Engineer(
+          answers.engineerName,
+          answers.engineerID,
+          answers.engineerEmail,
+          answers.engineerGitHub
+        );
+
+        roster.push(engineer);
+
+        memberIDs.push(answers.engineerID);
+
+        fillRoster();
+      });
+  }
+  function setIntern() {
+    inquirer.prompt([]);
+  }
+  function setTeam() {}
 }
+init();
