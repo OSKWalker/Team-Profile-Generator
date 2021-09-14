@@ -185,7 +185,77 @@ function init() {
       });
   }
   function setIntern() {
-    inquirer.prompt([]);
+    inquirer
+      .prompt([
+        {
+          name: "interName",
+          type: "input",
+          message: "Enter your Intern's name:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Enter one or more characters:";
+          },
+        },
+        {
+          name: "internID",
+          type: "input",
+          message: "Enter your Intern's identification number:",
+          validate: (answer) => {
+            const valid = answer.match(/^[1-9]\d*$/);
+
+            if (valid) {
+              if (memberIDs.includes(answer)) {
+                return "Enter a UNIQUE identification number:";
+              } else {
+                return true;
+              }
+            }
+            return "Identification number must be greater than zero (0):";
+          },
+        },
+        {
+          name: "internEmail",
+          type: "input",
+          message: "Enter your Intern's E-mail address:",
+          validate: (answer) => {
+            const valid = answer.match(
+              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+            );
+
+            if (valid) {
+              return true;
+            }
+            return "Enter a valid e-mail address:";
+          },
+        },
+        {
+          name: "internSchool",
+          type: "input",
+          message: "Enter your Intern's school:",
+          validate: (answer) => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Enter one or more characters:";
+          },
+        },
+      ])
+      .then((answers) => {
+        const intern = new Intern(
+          answers.internName,
+          answers.internID,
+          answers.internEmail,
+          answers.internSchool
+        );
+
+        roster.push(intern);
+
+        memberIDs.push(answers.internID);
+
+        fillRoster();
+      });
   }
   function setTeam() {}
 }
