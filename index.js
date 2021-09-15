@@ -6,6 +6,7 @@ import path from "path";
 import fs from "fs";
 import render from "./src/template-helper.js";
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const OUTPUT_DIR = path.resolve(__dirname, "dist");
 const outputPath = path.join(OUTPUT_DIR, "index.html");
 const roster = [];
