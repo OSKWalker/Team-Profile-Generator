@@ -6,23 +6,19 @@ import path from "path";
 import fs from "fs";
 import render from "./src/template-helper.js";
 
-const directory = path.dirname(new URL(import.meta.url).pathname).split("/");
+/*const directory = path.dirname(new URL(import.meta.url).pathname).split("/");
 
 for (let i = 0; i <= 1; i++) {
   directory.shift();
 }
 
-console.log(directory);
-const __dirname = directory.join("/");
-const OUTPUT_DIR = path.resolve(__dirname, "dist");
+const __dirname = directory.join("/");*/
+
+const OUTPUT_DIR = path.resolve("dist");
 const outputPath = path.join(OUTPUT_DIR, "index.html");
 const roster = [];
 const memberIDs = [];
 
-console.log(`\n${__dirname}\n`);
-console.log(`\n${OUTPUT_DIR}\n`);
-console.log(`\n${outputPath}\n`);
-/*
 function init() {
   console.log("Team Profile Generator Initialized");
 
@@ -279,4 +275,3 @@ function init() {
   setManager();
 }
 init();
-*/
