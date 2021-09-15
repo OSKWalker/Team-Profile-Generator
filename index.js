@@ -196,7 +196,7 @@ function init() {
     inquirer
       .prompt([
         {
-          name: "interName",
+          name: "internName",
           type: "input",
           message: "Enter your Intern's name:",
           validate: (answer) => {
