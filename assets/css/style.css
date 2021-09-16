@@ -2,7 +2,7 @@
 :root {
   --darkest: black;
   --darker: rgb(9, 9, 73);
-  --dark: blue;
+  --dark: darkblue;
   --medium: cornflowerblue;
   --light: lightblue;
   --lighter: silver;
@@ -19,18 +19,12 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: var(--darkest);
-  color: var(--lightest);
+  color: var(--light);
 }
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-variant: small-caps;
-  background-image: url("../images/blurry_blue_background_ii-t2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 .employee-card {
@@ -49,17 +43,24 @@ body {
 }
 
 .team-heading {
-  background-image: url("../images/OIP-2.jpg");
+  background-image: url("../images/OIP.jpg");
   background-position: center;
   background-size: auto;
-  border-bottom: 5px solid cornflowerblue;
-  background-color: darkblue;
+  border-bottom: 5px solid var(--medium);
+  background-color: var(--light);
 }
 
 .team-area {
   flex-wrap: wrap;
   max-width: 1000px;
-  margin: 2em auto;
+  margin: 3em auto;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--lightest);
 }
 
 .intern {
@@ -78,4 +79,9 @@ body {
   background-color: purple;
   color: #fff;
   font-weight: bold;
+}
+
+.list-group-item {
+  text-decoration: none;
+  color: var(--dark);
 }
