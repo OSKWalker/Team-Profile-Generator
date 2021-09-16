@@ -12,8 +12,8 @@ describe("Intern", () => {
     expect(intern.school).toBe(conArg);
   });
 
-  test("Can get the intern school name via constructor arguments", () => {
-    const conArg = "GitHub";
+  test("Can get the intern school name via the getSchool() method", () => {
+    const conArg = "School";
     const intern = new Intern("Name", 123, "example@arguments.com", conArg);
     expect(intern.getSchool()).toBe(conArg);
   });
