@@ -23,7 +23,7 @@ function init() {
   console.log("Team Profile Generator Initialized");
 
   function setManager() {
-    console.log("No team is complete without someone to manage it.\n");
+    console.log("\nNo team is complete without someone to manage it.\n");
     inquirer
       .prompt([
         {

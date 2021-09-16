@@ -1,0 +1,81 @@
+/* Color scheme*/
+:root {
+  --darkest: black;
+  --darker: rgb(9, 9, 73);
+  --dark: blue;
+  --medium: cornflowerblue;
+  --light: lightblue;
+  --lighter: silver;
+  --lightest: ivory;
+}
+
+/* Content highlight and background colors*/
+::selection {
+  background-color: var(--lighter);
+  color: var(--darkest);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--darkest);
+  color: var(--lightest);
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-variant: small-caps;
+  background-image: url("../images/blurry_blue_background_ii-t2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.employee-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("../images/OIP.jpg");
+  background-size: cover;
+  margin: 1em;
+  max-width: 280px;
+  width: 90%;
+  min-height: 22rem;
+  color: var(--lightest);
+  border: none;
+  box-shadow: 5px 5px 10px var(--darkest);
+}
+
+.team-heading {
+  background-image: url("../images/OIP-2.jpg");
+  background-position: center;
+  background-size: auto;
+  border-bottom: 5px solid cornflowerblue;
+  background-color: darkblue;
+}
+
+.team-area {
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 2em auto;
+}
+
+.intern {
+  background-color: darkgreen;
+  color: #fff;
+  font-weight: bold;
+}
+
+.engineer {
+  background-color: var(--darker);
+  color: #fff;
+  font-weight: bold;
+}
+
+.manager {
+  background-color: purple;
+  color: #fff;
+  font-weight: bold;
+}
