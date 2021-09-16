@@ -1,7 +1,7 @@
 import Employee from "../lib/Employee.js";
 
 describe("Employee", () => {
-  test.only("Can create an Employee instance", () => {
+  test("Can create an Employee instance", () => {
     const employee = new Employee();
     expect(typeof employee).toBe("object");
   });
